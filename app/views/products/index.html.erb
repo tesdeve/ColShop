@@ -7,7 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Image url</th>
+      <th>Image</th>
       <th>Price</th>
       <th>Available</th>
       <th>Stock quantity</th>
@@ -20,7 +20,13 @@
       <tr>
         <td><%= product.title %></td>
         <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
+        <% if product.image.attached?  %>
+         <td><%= image_tag product.image, style: " width:200px; display: block" %></td>
+        <% else %>
+         <td><%= " No image attached yet " %></td>
+        <% end %>
+        
+        
         <td><%= product.price %></td>
         <td><%= product.available %></td>
         <td><%= product.stock_quantity %></td>
@@ -35,3 +41,7 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+
+
+<!-- <td><%#= image_tag product.image, style: " width:200px; display: block" if product.image.attached? %></td>-->

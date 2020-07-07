@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+<div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, ​id: :product_title​ %>
   </div>
@@ -23,8 +24,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url, id: :product_image_url %>
+    <% if product.image.attached? %>
+      <%= image_tag product.image, style: " width:200px; display: block" %>
+      <%#= image_pack_tag product.image, style: " width:200px; display: block" %>
+    <% end %>
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :product_image %>
   </div>
 
   <div class="field">
@@ -32,7 +37,21 @@
     <%= form.text_field :price, id: :product_price %>
   </div>
 
+  <div class="field">
+    <%= form.label :available %>
+    <%= form.text_field :available, id: :product_available  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock_quantity %>
+    <%= form.number_field :stock_quantity, id: :product_stock_quantity  %>
+  </div>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
