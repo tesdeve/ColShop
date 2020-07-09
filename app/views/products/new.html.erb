@@ -1,5 +1,7 @@
-<h1>New Product</h1>
-
+<h1 class="formName text-center">New Product</h1>
+<p id="notice"><%= notice %></p>
 <%= render 'form', product: @product %>
 
-<%= link_to 'Back', products_path %>
+<div class="backButtom">
+	<%= link_to 'Back', products_path %>
+</div>
