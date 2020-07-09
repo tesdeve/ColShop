@@ -1,0 +1,6 @@
+<% if product.image.attached?  %>
+ <%= image_tag product.image, class: "imageProducts" %>
+<% else %>
+  <%= " No image attached yet " %>
+<% end %>
+
