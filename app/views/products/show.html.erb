@@ -2,6 +2,7 @@
 <div class="card showProductcard">
   <%= render 'productImage', product: @product  %> 
   <div class="card-body">
+
     <p >
       <h4 class="box text-center"><%= @product.title.present? ? @product.title : "Sin Nombre" %></h4>
     </p>
@@ -13,7 +14,7 @@
 
     <p>
       <strong>Price:</strong>
-      <%= @product.price %>
+      <%= number_to_currency(@product.price) %>
     </p>
 
     <p>
