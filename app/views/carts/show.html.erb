@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="linksCartItems"> 
+	<%= link_to 'Edit', edit_cart_path(@cart) %> |
+	<%= link_to 'Continuar comprando', store_index_path %>
+</div>
+	<div class="card showProductcard">
+	  <div class="card-body">
+			<h3> Estos son sus productos </h3>
+			<% @cart.line_items.each do |item| %>
+	   		<hr>
+	   		 <%= image_tag item.product.image, class: "imageShowCart"  %>
+	      <h6 class="pt-4"><%= item.product.title %></h6>
+				<hr>
+			<% end %>
+	  </div>
+	</div>
+<div class="linksCartItems"> 
+	<%= link_to 'Edit', edit_cart_path(@cart) %> |
+	<%= link_to 'Continuar comprando', store_index_path %>
+</div>

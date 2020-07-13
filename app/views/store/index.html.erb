@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row mt-5'>
+  <div class='tex-center my-5'>
+    <%= link_to 'New Product', new_product_path %>
+  </div>
+</div>
+<h3 class='text-center my-5'>Escoje tus paquetes pronto !!</h3>
+<div class='row' id='container_post'>
+
+	<% cache @products do %>
+  	<% @products.each do |product| %>
+   ​   <% cache product do %>
+		    <div class='col-md-4'>
+		      <div class="card my-4">
+		        <%= render '/products/productImage', product: product  %> 
+		        <div class="card-body">
+		          <h4 class="card-title text-center"><%= product.title.present? ? product.title : "Sin Nombre"  %></h4>
+		          <p class="card-text"><%= sanitize(product.description.truncate(107, separator: ' ')) %></p>
+		          <p class="card-text">Price: <%= number_to_currency(product.price) %></p>
+		          <p class="card-text">Available: <%= product.available %></p>
+		          <p class="card-text">Quanity Available: <%= product.stock_quantity%></p>
+		          <hr>
+		            <%= link_to 'Show', product, class: 'mx-2' %>
+		            <%= link_to 'Edit', edit_product_path(product), class: 'mx-2' %>
+		            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+		          <hr>
+								<div class="add2CartDiv">  
+		            	<%= button_to 'Add to Cart', line_items_path(product_id: product), class: 'add2CartButton' %>
+		            </div>
+		        </div>
+		      </div>
+		    </div>
+    	<% end %>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+

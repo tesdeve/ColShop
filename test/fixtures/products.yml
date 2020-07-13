@@ -3,7 +3,7 @@
 one:
   title: MyString
   description: MyText
-  image: MyString
+  #image: MyString
   price: 9.99
   available: MyString
   stock_quantity: 1
@@ -11,7 +11,7 @@ one:
 two:
   title: MyString
   description: MyText
-  image: MyString
+  #image: MyString
   price: 9.99
   available: MyString
   stock_quantity: 1

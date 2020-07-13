@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-.button.buttonSubmit {
+.btn.buttonSubmit {
   background-color: #00ff9f;
   padding: 12px;
   border-radius: 0.7rem;
@@ -48,7 +48,7 @@
   font-weight: 400;
 }
 
-.button.buttonSubmit:hover {     
+.btn.buttonSubmit:hover {     
   background: #333; 
   color:    #00ff9f;
   cursor: pointer; 
@@ -74,6 +74,23 @@
   margin-right: 5%;
 }
 
+.add2CartDiv {
+    justify-content: center;
+    display: grid;
+}
+
+.add2CartButton {
+    background-color: #09ed09;
+}
+
+.imageShowCart {
+  width: 35%;
+  height: 70px !important;
+}
+
+.linksCartItems {
+  margin-top: 10%
+}
 
 
 
