@@ -1,0 +1,31 @@
+def destroy
+
+
+    puts" This is SESSION-CART_ID : #{session[:cart_id]}"
+ puts""
+    puts""
+    puts""
+
+    
+    puts" This is CART.ID : #{@cart.id}"
+    puts""
+    puts""
+    puts""
+    puts""
+    @cart.destroy if @cart.id == session[:cart_id]
+    puts""
+    puts""
+     puts" This is SESSION-CART_ID : #{session[:cart_id]}"
+    puts""
+    puts""
+
+    session[:cart_id] = nil
+    puts""
+    puts""
+    puts""
+
+    respond_to do |format|
+      format.html { redirect_to store_index_url, notice: 'Cart is currently empty' }
+      format.json { head :no_content }
+    end
+  end
