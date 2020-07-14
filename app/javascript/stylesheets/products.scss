@@ -93,4 +93,38 @@
 }
 
 
+#notice {
+    background-color: yellow;
+    margin-top: 5rem;
+    justify-content: center;
+    display: flex;
+}
+
+table {
+  border-collapse: collapse;
+}
+td {
+  padding: 0.5em;
+}
+
+td.price {
+  font-weight: bold;
+  text-align: right;
+}
+
+td.quantity{
+  white-space: nowrap;
+}
+
+tfoot {
+  th, td.price {
+    font-weight: bold;
+  }
+  th {
+    text-align: right;
+  }
+  td.price {
+   border-top: solid thin;
+  }
+}
 
