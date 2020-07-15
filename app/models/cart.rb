@@ -3,12 +3,14 @@ class Cart < ApplicationRecord
 
   def add_product(product)
     current_item =  line_items.find_by(product_id: product.id)
+    product = Product.find(product.id)
     if current_item
+      current_item.price = product.price
       current_item.quantity += 1
-      puts("MOdels Current Item Quantity = #{current_item.quantity }")
     else 
       current_item = line_items.build(product_id: product.id)
-      puts("MOdels Creating Current Item Quantity")
+      current_item.price = product.price
+      current_item.save
     end
     current_item
   end
