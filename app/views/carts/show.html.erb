@@ -6,19 +6,22 @@
 </div>
 	<div class="card showProductcard">
 	  <div class="card-body">
-			<h3> Estos son sus productos </h3>
+			<h3 class="text-center mb-3"> Estos son sus productos </h3>
 			<table>
 				<tbody>
 					<tr>
-		   			<th class="col-1"> Qty </th>
+						<th class="col-1"> </th>
+		   			<th class="col-1 quantityHeading"> Qty </th>
 		   			<th class="col-5"> Product </th>
 		   			<th class="col-1 unitPrice"> Unit Price </th>
 		   			<th colspan="1"></th>
 		   			
 		   			<th class="col-2 subTotal"> Subtotal </th>
 		   		</tr>
+		   		<hr>
 					<% @cart.line_items.each do |item| %>
 			   		<tr>
+			   			<td class="col-1"><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			   			<%#= image_tag item.product.image, class: "imageShowCart"  %>
 				      <td class="quantity col-1"><%=item.quantity %></td>
 				      <td class="col-5"><%= item.product.title %></td>
@@ -30,7 +33,7 @@
 				</tbody>
 				<tfoot class="mt-3">
 					<tr>
-						<th colspan='4'>Total: </th>
+						<th colspan='5'>Total: </th>
 						<td class='price'><%= number_to_currency(@cart.total_price) %></td>
 					</tr>
 				</tfoot>
