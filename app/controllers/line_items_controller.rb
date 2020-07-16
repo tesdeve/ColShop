@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart # this was the concern we created
 
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create, :destroy]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -12,7 +12,7 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/1
   # GET /line_items/1.json
-  def show
+  def show 
   end
 
   # GET /line_items/new
@@ -59,7 +59,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to @cart, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,9 +70,11 @@ class LineItemsController < ApplicationController
       @line_item = LineItem.find(params[:id])
     end
 
+
+
     # Only allow a list of trusted parameters through.
     def line_item_params
-      params.require(:line_item).permit(:product_id) #, :cart_id
+      params.require(:line_item).permit(:product_id, :price)   #, :cart_id
     end
     
 end
